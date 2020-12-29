@@ -9,8 +9,8 @@ function App() {
     <div className="app">
       {/* <CardDemo/> */}
       {/* <CardConfigDemo/> */}
-      {/* <Form/> */}
-      <RenderCardConfig/>
+      <Form/>
+      {/* <RenderCardConfig/> */}
     </div>
   );
 }
