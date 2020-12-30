@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,6 +9,22 @@ import Grid from '@material-ui/core/Grid';
 import {CardConfig} from './CardConfig'
 
 function RenderCardConfig() {
+
+    const [cardInfo, setCardInfo] = useState({
+        category: "",
+        partner: ""
+    })
+
+
+    const handleCardState = (card, e) => {
+        console.log("------------------",card)
+        setCardInfo({
+            category: card.category,
+            partner: card.partner
+        })
+
+        console.log(cardInfo)
+    }
 
     const renderCard = (card, index) => {
         return (
@@ -25,7 +41,7 @@ function RenderCardConfig() {
                     </Typography>  
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary" href={card.href}>
+                    <Button size="small" color="primary" onClick={handleCardState(card)}>
                         Proceed
                     </Button>
                 </CardActions>
