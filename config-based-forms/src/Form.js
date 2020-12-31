@@ -2,7 +2,7 @@ import React, {useState, useMemo} from 'react'
 import { getConfig } from './config'
 import Renderer from './Renderer'
 
-function Form({cardInfo}) {
+function Form({cardInfo, setOpenPopup}) {
 
     const [state, setState] = useState({
         vehicleNo:"",
@@ -18,6 +18,7 @@ function Form({cardInfo}) {
         e.preventDefault()
         console.log("state", state)
         console.log(formConfig.apiLink)
+        setOpenPopup(false)
     }
 
     const handleOnChange = field => event => {
@@ -36,9 +37,9 @@ function Form({cardInfo}) {
     })[0]
 
     return (
-        <div className="dynamicForm" style={{textAlign: 'center', marginTop: 100}}>
-            <h1>{cardInfo.category}</h1><br/>
-            <h3>{cardInfo.partner}</h3><br/>
+        <div className="dynamicForm" style={{textAlign: 'center'}}>
+            {/* <h1>{cardInfo.category}</h1><br/>
+            <h3>{cardInfo.partner}</h3><br/> */}
             {/* <h5>{config[1].product}</h5><br/> */}
             <form onSubmit={handleSubmit}>
                 <Renderer formConfig={formConfig}/>

@@ -12,17 +12,35 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CloseIcon from '@material-ui/icons/Close';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles(theme => ({
+    dialogWrapper : {
+        position: 'absolute',
+        top: theme.spacing(5)
+    },
+    root: {
+        flexGrow: 1
+    }
+}))
 
 function RenderCardConfig() {
 
     const [cardInfo, setCardInfo] = useState({
         category: "",
-        partner: ""
+        partner: "",
+        product: "",
     })
 
     const [open, setOpen] = useState(false)
 
-    const handleClickOpen = () => {
+    const handleClickOpen = (card) => {
+        console.log(card.category, card.partner)
+        setCardInfo({
+            category: card.category,
+            partner: card.partner,
+            product: card.product
+        })
         setOpen(true)
     }
 
@@ -30,17 +48,10 @@ function RenderCardConfig() {
         setOpen(false)
     }
 
-    const handleCardState = (card) => {
-        console.log(card.category, card.partner)
-        setCardInfo({
-            category: card.category,
-            partner: card.partner
-        })
-    }
+    const classes = useStyles()
 
     const renderCard = (card, index) => {
         return (
-            <Grid container direction='row' alignItems="center" justify="space-evenly">
                 <Grid item xs={12} sm={6}>
                 <Card key={index} style={{maxWidth: 345, margin: 'auto', marginTop: 20}}>    
                 <CardMedia image={card.image} style={{height: 140}}/>
@@ -53,20 +64,34 @@ function RenderCardConfig() {
                     </Typography>  
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary" onClick={() => handleCardState(card)}>
+                    <Button size="small" color="primary" onClick={() => handleClickOpen(card)}>
                         Proceed
                     </Button>
                 </CardActions>
                 </Card>
                 </Grid>
-            </Grid>
         )
     }
 
     return (
         <div className="cardRender">
-            {CardConfig.map(renderCard)}
-            {cardInfo.category !== '' && <Form cardInfo={cardInfo}/>}  
+            <Grid container>
+                {CardConfig.map(renderCard)}
+            </Grid>
+            {cardInfo.category !== '' && 
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" maxWidth="sm" fullWidth={true} classes = {{paper : classes.dialogWrapper}}>
+                    <DialogTitle>
+                        {cardInfo.product} By {cardInfo.partner}
+                        <div className="dialogTitle__close">
+                            <CloseIcon onClick={handleClose}/>
+                        </div>
+                    </DialogTitle>
+                    <DialogContent dividers>
+                        <Form cardInfo={cardInfo} setOpenPopup={setOpen}/>
+                    </DialogContent>
+                </Dialog>
+            }  
+            {/* {cardInfo.category !== '' && <Form cardInfo={cardInfo}/>}   */}
         </div>
     )
 }
