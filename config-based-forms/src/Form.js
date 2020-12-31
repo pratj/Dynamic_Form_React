@@ -17,6 +17,7 @@ function Form({cardInfo}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log("state", state)
+        console.log(formConfig.apiLink)
     }
 
     const handleOnChange = field => event => {
@@ -28,13 +29,19 @@ function Form({cardInfo}) {
         return getConfig({state, onChange: handleOnChange})
     }, [state])
 
+    // Mapping cardInfo to Form Config
+    //Will return an array of size 1 therefore fetching the Oth index
+    const formConfig = config.filter((formItem) => {
+        return (formItem.category === cardInfo.category) && (formItem.partner === cardInfo.partner)
+    })[0]
+
     return (
         <div className="dynamicForm" style={{textAlign: 'center', marginTop: 100}}>
             <h1>{cardInfo.category}</h1><br/>
             <h3>{cardInfo.partner}</h3><br/>
             {/* <h5>{config[1].product}</h5><br/> */}
             <form onSubmit={handleSubmit}>
-                <Renderer config={config} cardInfo={cardInfo}/>
+                <Renderer formConfig={formConfig}/>
                 <button>Submit</button>
             </form>
         </div>

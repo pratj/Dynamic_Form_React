@@ -8,6 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import {CardConfig} from './CardConfig'
 import Form from './Form';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import CloseIcon from '@material-ui/icons/Close';
 
 function RenderCardConfig() {
 
@@ -16,6 +20,15 @@ function RenderCardConfig() {
         partner: ""
     })
 
+    const [open, setOpen] = useState(false)
+
+    const handleClickOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     const handleCardState = (card) => {
         console.log(card.category, card.partner)

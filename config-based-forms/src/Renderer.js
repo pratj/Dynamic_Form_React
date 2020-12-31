@@ -16,17 +16,15 @@ const mapPropsToConfig = config => {
     return configWithProps
 }
 
-function Renderer({config, cardInfo}) {
+function Renderer({formConfig}) {
 
-    if(!config){
+    if(!formConfig){
         throw new Error('You are calling Renderer with no config.')
     }
 
-    // Mapping cardInfo to Form Config
-    //Will return an array of size 1 therefore fetching the Oth index
-    const formConfig = config.filter((formItem) => {
-        return (formItem.category === cardInfo.category) && (formItem.partner === cardInfo.partner)
-    })[0]
+    // const formConfig = config.filter((formItem) => {
+    //     return (formItem.category === cardInfo.category) && (formItem.partner === cardInfo.partner)
+    // })[0]
 
     const configWithProps = mapPropsToConfig(formConfig.fields)
 
