@@ -2,7 +2,7 @@ import React, {useState, useMemo} from 'react'
 import { getConfig } from './config'
 import Renderer from './Renderer'
 
-function Form() {
+function Form({cardInfo}) {
 
     const [state, setState] = useState({
         vehicleNo:"",
@@ -30,11 +30,11 @@ function Form() {
 
     return (
         <div className="dynamicForm" style={{textAlign: 'center', marginTop: 100}}>
-            <h1>{config[1].category}</h1><br/>
-            <h3>{config[1].partner}</h3><br/>
-            <h5>{config[1].product}</h5><br/>
+            <h1>{cardInfo.category}</h1><br/>
+            <h3>{cardInfo.partner}</h3><br/>
+            {/* <h5>{config[1].product}</h5><br/> */}
             <form onSubmit={handleSubmit}>
-                <Renderer config={config}/>
+                <Renderer config={config} cardInfo={cardInfo}/>
                 <button>Submit</button>
             </form>
         </div>

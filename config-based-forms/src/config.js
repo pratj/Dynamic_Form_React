@@ -138,6 +138,42 @@ export const getConfig = ({state, onChange}) => {
             "apiLink": "", 
             "apiKey": "",
             "apiMethod": ""
+        },
+        {
+            "category": "Travel Insurance",
+            "partner": "Bajaj Allianz",
+            "product": "Overseas Travel Insurance",
+            "fields": [
+                {
+                    "name": "destination",
+                    "id": "destination",
+                    "label": "Travelling To",
+                    "component": SelectField,
+                    "value": state["destination"],
+                    "onChange": onChange("destination")
+                },
+                {
+                    "name": "startDate",
+                    "id": "startDate",
+                    "type": "date",
+                    "label": "Trip Start Date",
+                    "component": InputField,
+                    "value": state["startDate"],
+                    "onChange": onChange("startDate")
+                },
+                {
+                    "name": "endDate",
+                    "id": "endDate",
+                    "type": "date",
+                    "label": "Trip End Date",
+                    "component": InputField,
+                    "value": state["endDate"],
+                    "onChange": onChange("endDate")
+                },
+            ],
+            "apiLink": "", 
+            "apiKey": "",
+            "apiMethod": ""
         }
     
     ]

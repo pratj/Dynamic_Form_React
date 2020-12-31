@@ -18,8 +18,8 @@ const useStyles = makeStyles({
 export default ({key, card}) => {
   const classes = useStyles();
 
-  const handleCardState = () => {
-      console.log("clicked")
+  const handleCardState = (card) => {
+      console.log(card.category, card.partner)
   }
 //   const initialCardInfo = {
 //     category: "",
@@ -48,7 +48,7 @@ export default ({key, card}) => {
                     </Typography>  
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary" onClick={handleCardState}>
+                    <Button size="small" color="primary" onClick={() => handleCardState(card)}>
                         Proceed
                     </Button>
                 </CardActions>

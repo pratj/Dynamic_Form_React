@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import {CardConfig} from './CardConfig'
+import Form from './Form';
 
 function RenderCardConfig() {
 
@@ -16,14 +17,12 @@ function RenderCardConfig() {
     })
 
 
-    const handleCardState = (card, e) => {
-        console.log("------------------",card)
+    const handleCardState = (card) => {
+        console.log(card.category, card.partner)
         setCardInfo({
             category: card.category,
             partner: card.partner
         })
-
-        console.log(cardInfo)
     }
 
     const renderCard = (card, index) => {
@@ -41,7 +40,7 @@ function RenderCardConfig() {
                     </Typography>  
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary" onClick={handleCardState(card)}>
+                    <Button size="small" color="primary" onClick={() => handleCardState(card)}>
                         Proceed
                     </Button>
                 </CardActions>
@@ -53,7 +52,8 @@ function RenderCardConfig() {
 
     return (
         <div className="cardRender">
-            {CardConfig.map(renderCard)}  
+            {CardConfig.map(renderCard)}
+            {cardInfo.category !== '' && <Form cardInfo={cardInfo}/>}  
         </div>
     )
 }
