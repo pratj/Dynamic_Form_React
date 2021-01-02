@@ -18,11 +18,16 @@ function Form({cardInfo, setOpenPopup}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log("state", state)
-        console.log(formConfig.apiPath)
         // Testing request to mountebank to get the quote
         axios.get("http://localhost:9000/motor-insurance/car-insurance/tata-aig/quote").then(response => {
             console.log(response.data.quote)
         })
+        // data that will be sent to the backend (Quote will be generated from the backend)
+        // post request will be sent to the spring backend.
+
+        console.log("Final Data to be sent => ", 
+        {category: formConfig.category, product: formConfig.product, partner: formConfig.partner, formData: state, 
+            apiPath: formConfig.apiPath, apiMethod: formConfig.apiMethod})
         setOpenPopup(false)
     }
 
