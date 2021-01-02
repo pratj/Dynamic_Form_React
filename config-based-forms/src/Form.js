@@ -1,6 +1,7 @@
 import React, {useState, useMemo} from 'react'
 import { getConfig } from './config'
 import Renderer from './Renderer'
+import axios from 'axios'
 
 function Form({cardInfo, setOpenPopup}) {
 
@@ -17,7 +18,10 @@ function Form({cardInfo, setOpenPopup}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log("state", state)
-        console.log(formConfig.apiLink)
+        console.log(formConfig.apiPath)
+        axios.get("http://localhost:9000/motor-insurance/car-insurance/tata-aig/quote").then(response => {
+            console.log(response.data.quote)
+        })
         setOpenPopup(false)
     }
 

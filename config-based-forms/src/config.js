@@ -49,9 +49,9 @@ export const getConfig = ({state, onChange}) => {
                     "onChange": onChange("phoneNumber")
                   },
             ],
-            "apiLink": "", 
+            "apiPath": "/motor-insurance/car-insurance/tata-aig/quote", 
             "apiKey": "",
-            "apiMethod": ""
+            "apiMethod": "GET"
         },
         {
             "category": "Motor Insurance",
