@@ -99,9 +99,9 @@ export const getConfig = ({state, onChange}) => {
                     "onChange": onChange("phoneNumber")
                   },
             ],
-            "apiLink": "", 
+            "apiPath": "/motor-insurance/car-insurance/bajaj-allianz/quote", 
             "apiKey": "",
-            "apiMethod": ""
+            "apiMethod": "GET"
         },
         {
             "category":"Travel Insurance",
@@ -135,9 +135,9 @@ export const getConfig = ({state, onChange}) => {
                     "onChange": onChange("endDate")
                 }
             ],
-            "apiLink": "", 
+            "apiPath": "/travel-insurance/overseas-insurance/tata-aig/quote", 
             "apiKey": "",
-            "apiMethod": ""
+            "apiMethod": "GET"
         },
         {
             "category": "Travel Insurance",
@@ -171,9 +171,9 @@ export const getConfig = ({state, onChange}) => {
                     "onChange": onChange("endDate")
                 },
             ],
-            "apiLink": "", 
+            "apiPath": "/travel-insurance/overseas-insurance/bajaj-allianz/quote", 
             "apiKey": "",
-            "apiMethod": ""
+            "apiMethod": "GET"
         }
     
     ]

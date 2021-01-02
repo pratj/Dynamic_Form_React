@@ -19,6 +19,7 @@ function Form({cardInfo, setOpenPopup}) {
         e.preventDefault()
         console.log("state", state)
         console.log(formConfig.apiPath)
+        // Testing request to mountebank to get the quote
         axios.get("http://localhost:9000/motor-insurance/car-insurance/tata-aig/quote").then(response => {
             console.log(response.data.quote)
         })
