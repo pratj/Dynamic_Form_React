@@ -49,9 +49,9 @@ export const getConfig = ({state, onChange}) => {
                     "onChange": onChange("phoneNumber")
                   },
             ],
-            "apiLink": "", 
+            "apiPath": "/motor-insurance/car-insurance/tata-aig/quote", 
             "apiKey": "",
-            "apiMethod": ""
+            "apiMethod": "GET"
         },
         {
             "category": "Motor Insurance",
@@ -99,9 +99,9 @@ export const getConfig = ({state, onChange}) => {
                     "onChange": onChange("phoneNumber")
                   },
             ],
-            "apiLink": "", 
+            "apiPath": "/motor-insurance/car-insurance/bajaj-allianz/quote", 
             "apiKey": "",
-            "apiMethod": ""
+            "apiMethod": "GET"
         },
         {
             "category":"Travel Insurance",
@@ -135,9 +135,45 @@ export const getConfig = ({state, onChange}) => {
                     "onChange": onChange("endDate")
                 }
             ],
-            "apiLink": "", 
+            "apiPath": "/travel-insurance/overseas-insurance/tata-aig/quote", 
             "apiKey": "",
-            "apiMethod": ""
+            "apiMethod": "GET"
+        },
+        {
+            "category": "Travel Insurance",
+            "partner": "Bajaj Allianz",
+            "product": "Overseas Travel Insurance",
+            "fields": [
+                {
+                    "name": "destination",
+                    "id": "destination",
+                    "label": "Travelling To",
+                    "component": SelectField,
+                    "value": state["destination"],
+                    "onChange": onChange("destination")
+                },
+                {
+                    "name": "startDate",
+                    "id": "startDate",
+                    "type": "date",
+                    "label": "Trip Start Date",
+                    "component": InputField,
+                    "value": state["startDate"],
+                    "onChange": onChange("startDate")
+                },
+                {
+                    "name": "endDate",
+                    "id": "endDate",
+                    "type": "date",
+                    "label": "Trip End Date",
+                    "component": InputField,
+                    "value": state["endDate"],
+                    "onChange": onChange("endDate")
+                },
+            ],
+            "apiPath": "/travel-insurance/overseas-insurance/bajaj-allianz/quote", 
+            "apiKey": "",
+            "apiMethod": "GET"
         }
     
     ]
