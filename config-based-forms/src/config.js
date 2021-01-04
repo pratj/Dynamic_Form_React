@@ -52,7 +52,7 @@ export const getConfig = ({state, onChange}) => {
             "api": {
                 "method": "GET",
                 "path": "/motor-insurance/car-insurance/tata-aig/quote",
-                "headers": {"header":"", "value":""},
+                "headers": [{"header":"", "value":""}],
                 "uriType": "/"
             }
         },
@@ -105,7 +105,7 @@ export const getConfig = ({state, onChange}) => {
             "api": {
                 "method": "GET",
                 "path": "/motor-insurance/car-insurance/bajaj-allianz/quote",
-                "headers": {"header":"", "value":""},
+                "headers": [{"header":"", "value":""}],
                 "uriType": "/"
             }
         },
@@ -144,7 +144,7 @@ export const getConfig = ({state, onChange}) => {
             "api": {
                 "method": "GET",
                 "path": "/travel-insurance/overseas-insurance/tata-aig/quote",
-                "headers": {"header":"", "value":""},
+                "headers": [{"header":"", "value":""}],
                 "uriType": "/"
             }
         },
@@ -183,7 +183,7 @@ export const getConfig = ({state, onChange}) => {
             "api": {
                 "method": "GET",
                 "path": "/travel-insurance/overseas-insurance/bajaj-allianz/quote",
-                "headers": {"header":"", "value":""},
+                "headers": [{"header":"", "value":""}],
                 "uriType": "/"
             }
         }
