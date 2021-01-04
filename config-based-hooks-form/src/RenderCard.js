@@ -86,7 +86,11 @@ function RenderCard() {
                             <div className="dialogTitle__close">
                                 <CloseIcon onClick={handleClose}/>
                             </div>
-                            <p className="dialogTitle_description">{cardInfo.product} By {cardInfo.partner}</p>
+                            <div className="dialogTitle_description">
+                                <Typography component="h3" variant="h5">
+                                    {cardInfo.product} By {cardInfo.partner}
+                                </Typography>
+                            </div>
                         </div>
                     </DialogTitle>
                     <DialogContent dividers>

@@ -4,6 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import { MenuItem, Select } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -99,23 +101,25 @@ function RenderForm({formConfig, onSubmit}) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <h4>{formConfig.category}</h4>
-                {renderFields(fields)}
-                <br/>
-                <Button
+        <Container component="main" maxWidth="xs" className="registration">
+            <div className={classes.paper}>
+                <Typography variant="subtitle1">
+                    Provide the following details
+                </Typography>
+                <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+                    {renderFields(fields)}
+                    <Button
                         type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                >
-                Submit
-                </Button>
-                {/* <button type="submit">Submit</button> */}
-            </form>
-        </div>
+                    >
+                    Submit
+                    </Button>
+                </form>
+            </div>
+        </Container>
     )
 }
 

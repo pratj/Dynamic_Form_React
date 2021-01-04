@@ -5,7 +5,8 @@ import RenderForm from './RenderForm';
 function Form({cardInfo, setOpenPopup}) {
 
     const onSubmit = (data) => {
-        console.log(data)
+        console.log("Final Data to be sent => ",
+        {category: formConfig.category, product: formConfig.product, partner: formConfig.partner, formData: data, apiData: formConfig.api})
         setOpenPopup(false)
     }
 
