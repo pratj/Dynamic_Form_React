@@ -6,7 +6,7 @@ function InputField({...props}) {
         <div>
             {/* {label ? <label htmlFor={props.id}></label> : null}
             <input {...props}/>             */}
-            <TextField {...props} />
+            <TextField {...props}/>
         </div>
     )
 }

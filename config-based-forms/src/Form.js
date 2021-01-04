@@ -26,8 +26,7 @@ function Form({cardInfo, setOpenPopup}) {
         // post request will be sent to the spring backend.
 
         console.log("Final Data to be sent => ", 
-        {category: formConfig.category, product: formConfig.product, partner: formConfig.partner, formData: state, 
-            apiPath: formConfig.apiPath, apiMethod: formConfig.apiMethod})
+        {category: formConfig.category, product: formConfig.product, partner: formConfig.partner, formData: state, apiData : formConfig.api})
         setOpenPopup(false)
     }
 

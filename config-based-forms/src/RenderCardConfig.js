@@ -13,6 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core';
+import './Dialog.css'
 
 const useStyles = makeStyles(theme => ({
     dialogWrapper : {
@@ -81,9 +82,11 @@ function RenderCardConfig() {
             {cardInfo.category !== '' && 
                 <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" maxWidth="sm" fullWidth={true} classes = {{paper : classes.dialogWrapper}}>
                     <DialogTitle>
-                        {cardInfo.product} By {cardInfo.partner}
-                        <div className="dialogTitle__close">
-                            <CloseIcon onClick={handleClose}/>
+                        <div className="dialogTitle">
+                            <div className="dialogTitle__close">
+                                <CloseIcon onClick={handleClose}/>
+                            </div>
+                            <p className="dialogTitle_description">{cardInfo.product} By {cardInfo.partner}</p>
                         </div>
                     </DialogTitle>
                     <DialogContent dividers>
