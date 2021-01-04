@@ -2,8 +2,32 @@ import React, {useState, useMemo} from 'react'
 import { getConfig } from './config'
 import Renderer from './Renderer'
 import axios from 'axios'
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import {useForm, Controller} from 'react-hook-form'
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(2),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
 
 function Form({cardInfo, setOpenPopup}) {
+
+    const classes = useStyles();
+    const {handleSubmit} = useForm()
 
     const [state, setState] = useState({
         vehicleNo:"",
@@ -15,8 +39,7 @@ function Form({cardInfo, setOpenPopup}) {
         destination: ""
     })
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const onSubmit = () => {
         console.log("state", state)
         // Testing request to mountebank to get the quote
         axios.get("http://localhost:9000/motor-insurance/car-insurance/tata-aig/quote").then(response => {
@@ -46,15 +69,25 @@ function Form({cardInfo, setOpenPopup}) {
     })[0]
 
     return (
-        <div className="dynamicForm" style={{textAlign: 'center'}}>
-            {/* <h1>{cardInfo.category}</h1><br/>
-            <h3>{cardInfo.partner}</h3><br/> */}
-            {/* <h5>{config[1].product}</h5><br/> */}
-            <form onSubmit={handleSubmit}>
-                <Renderer formConfig={formConfig}/>
-                <button>Submit</button>
-            </form>
-        </div>
+        <Container component="main" maxWidth="xs" className="registration">
+            <div className={classes.paper}>
+                <Typography component="h1" variant="h5">
+                    Provide the following details
+                </Typography>
+                <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+                    <Renderer formConfig={formConfig}/>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
+                    Submit
+                    </Button>
+                </form>
+            </div>
+        </Container>
     )
 }
 

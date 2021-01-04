@@ -1,0 +1,18 @@
+.dialogTitle{
+    display: flex;
+}
+
+.dialogTitle_description{
+    margin: auto;
+}
+
+.dialogTitle__close :hover{
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    transition: color 100ms ease-out;
+}
+
+.dialogTitle__close > .MuiSvgIcon-root{
+    padding: 5px;
+    cursor: pointer;
+}
