@@ -31,7 +31,7 @@ export const FormConfig = [
         ],
         "api": {
             "method": "GET",
-            "path": "/motor-insurance/car-insurance/tata-aig/quote",
+            "path": "http://localhost:9000/motor-insurance/car-insurance/tata-aig/quote",
             "headers": [{"header":"", "value":""}],
             "uriType": "/"
         }
@@ -68,7 +68,7 @@ export const FormConfig = [
         ],
         "api": {
             "method": "GET",
-            "path": "/motor-insurance/car-insurance/bajaj-allianz/quote",
+            "path": "http://localhost:9000//motor-insurance/car-insurance/bajaj-allianz/quote",
             "headers": [{"header":"", "value":""}],
             "uriType": "/"
         }   
@@ -96,7 +96,7 @@ export const FormConfig = [
         ],
         "api": {
             "method": "GET",
-            "path": "/travel-insurance/overseas-insurance/tata-aig/quote",
+            "path": "http://localhost:9000/travel-insurance/overseas-insurance/tata-aig/quote",
             "headers": [{"header":"", "value":""}],
             "uriType": "/"
         }
@@ -124,7 +124,7 @@ export const FormConfig = [
         ],
         "api": {
             "method": "GET",
-            "path": "/travel-insurance/overseas-insurance/bajaj-allianz/quote",
+            "path": "http://localhost:9000/travel-insurance/overseas-insurance/bajaj-allianz/quote",
             "headers": [{"header":"", "value":""}],
             "uriType": "/"
         } 
