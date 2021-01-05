@@ -68,7 +68,7 @@ export const FormConfig = [
         ],
         "api": {
             "method": "GET",
-            "path": "http://localhost:9000//motor-insurance/car-insurance/bajaj-allianz/quote",
+            "path": "http://localhost:9000/motor-insurance/car-insurance/bajaj-allianz/quote",
             "headers": [{"header":"", "value":""}],
             "uriType": "/"
         }   
