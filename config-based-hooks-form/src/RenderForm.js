@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import './SelectField.css'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -68,8 +69,8 @@ function RenderForm({formConfig, onSubmit}) {
                         </div>
                     )
 
-                // case 'select':
-                //     return (
+                 case 'select':
+                    return (
                 //         <Controller
                 //         key={name}
                 //         name={name}
@@ -81,14 +82,23 @@ function RenderForm({formConfig, onSubmit}) {
                 //         ]}
                 //         as={Select}
                 //         />
-                //         // <Select id={name} name={name} label={label} inputRef={register} 
-                //         //     variant="outlined" margin="normal" required fullWidth>
-                //         //         <MenuItem value={"England"}>England</MenuItem>
-                //         //         <MenuItem value={"India"}>India</MenuItem>
-                //         //         <MenuItem value={"Australia"}>Australia</MenuItem>
-                //         //         <MenuItem value={"Singapore"}>Singapore</MenuItem>
-                //         // </Select>
-                //     )
+                        <div key={name}>
+                            {/* <Select id={name} name={name} label={label} value={'India'} inputRef={register} 
+                            variant="outlined" margin="dense" required fullWidth>
+                                <MenuItem value={"England"}>England</MenuItem>
+                                <MenuItem value={"India"}>India</MenuItem>
+                                <MenuItem value={"Australia"}>Australia</MenuItem>
+                                <MenuItem value={"Singapore"}>Singapore</MenuItem>
+                        </Select> */}
+                        <select id={name} name={name} ref={register}>
+                            <option value="">Select Destination..</option>
+                            <option value="India">India</option>
+                            <option value="England">England</option>
+                            <option value="Australia">Australia</option>
+                            <option value="USA">USA</option>
+                        </select>
+                        </div>
+                    )
 
                 default:
                     return (
