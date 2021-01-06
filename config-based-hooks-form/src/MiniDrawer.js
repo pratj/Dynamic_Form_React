@@ -15,8 +15,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import BusinessIcon from '@material-ui/icons/Business';
@@ -101,6 +99,25 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  const itemsList = [
+    {
+      text: "Home",
+      icon: <HomeIcon/>
+    },
+    {
+      text: "Services",
+      icon: <BusinessIcon/>
+    },
+    {
+      text: "Partners",
+      icon: <LoyaltyIcon/>
+    },
+    {
+      text: "About Us",
+      icon: <InfoIcon/>
+    }
+  ]
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -147,13 +164,15 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {['Home', 'Services', 'Partners', 'About Us'].map((text, index) => (
-            <ListItem button key={text}>
-                <ListItemIcon>{index === 0 ? <HomeIcon/> : index === 1 ? <BusinessIcon/> : index === 2 ? <LoyaltyIcon/> : <InfoIcon/>}</ListItemIcon>
-              {/* <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <BusinessIcon />}</ListItemIcon> */}
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {itemsList.map((item) => {
+            const {text, icon} = item
+            return (
+              <ListItem button key={text}>
+                {icon && <ListItemIcon>{icon}</ListItemIcon>}
+                <ListItemText primary={text}/>
+              </ListItem>
+            )
+          })}
         </List>
       </Drawer>
       <main className={classes.content}>

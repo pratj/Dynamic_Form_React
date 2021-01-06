@@ -70,7 +70,7 @@ export const FormConfig = [
             "method": "GET",
             "path": "http://localhost:9000/motor-insurance/car-insurance/bajaj-allianz/quote",
             "headers": [{"header":"", "value":""}],
-            "uriType": "/"
+            "uriType": "?"
         }   
     },
     {
@@ -95,7 +95,7 @@ export const FormConfig = [
             }
         ],
         "api": {
-            "method": "GET",
+            "method": "POST",
             "path": "http://localhost:9000/travel-insurance/overseas-insurance/tata-aig/quote",
             "headers": [{"header":"", "value":""}],
             "uriType": "/"
