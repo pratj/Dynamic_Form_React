@@ -1,7 +1,8 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography } from '@material-ui/core';
+import { Button, Container, TextField, Typography } from '@material-ui/core';
+import '../RenderForm.css'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -35,6 +36,34 @@ function RenderForm({formFields, onSubmit}) {
                 case 'email':
                 case 'tel':
                 case 'date':
+                    return (
+                        <div key={name}>
+                            <TextField id={name} name={name} type={type} label={label} placeholder={placeholder} inputRef={register}
+                                variant="outlined" margin="normal" required fullWidth/>
+                        </div>
+                    )
+                   break
+                
+                case 'select':
+                    return (
+                        <div key={name}>
+                            <select id={name} name={name} ref={register}>
+                                <option value="">Select Destination..</option>
+                                <option value="India">India</option>
+                                <option value="England">England</option>
+                                <option value="Australia">Australia</option>
+                                <option value="USA">USA</option>
+                            </select>  
+                        </div> 
+                    )
+                    break
+                
+                default:
+                    return (
+                        <div key={name}>
+                            <span style={{color: 'red'}}>Invalid Field</span>
+                        </div>
+                    )
             }
         })
     }
@@ -47,6 +76,9 @@ function RenderForm({formFields, onSubmit}) {
                 </Typography>
                 <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
                     {renderFields(formFields)}
+                    <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                        Submit
+                    </Button>
                 </form>
             </div>
         </Container>
