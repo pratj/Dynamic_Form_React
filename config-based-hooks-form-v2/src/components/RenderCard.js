@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogContent, DialogTitle, Grid, Typography } from '@material-ui/core'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core';
 import axios from 'axios'
 import CloseIcon from '@material-ui/icons/Close';
@@ -18,6 +18,8 @@ const useStyles = makeStyles(theme => ({
 
 function RenderCard() {
 
+    const [cardConfig, setCardConfig] = useState()
+
     const [cardInfo, setCardInfo] = useState({
         category: "",
         product: ""
@@ -25,7 +27,7 @@ function RenderCard() {
 
     const [open, setOpen] = useState(false)
 
-    var cardConfig;
+    // var cardConfig;
 
     const handleClickOpen = (card) => {
         console.log(card.category, card.product)
@@ -41,11 +43,30 @@ function RenderCard() {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:9090/api/").then((response) => {
-            console.log(response.data)
-            cardConfig = response.data
-        })
-    }, [cardConfig])
+        // axios.get("http://localhost:9090/api/").then((response) => {
+        //     console.log(response.data)
+        //     cardConfig = response.data
+        // })
+        setCardConfig([
+            {
+                "category": "Motor Insurance", 
+                "product": "Car Insurance",
+                "image": "https://images.moneycontrol.com/static-mcnews/2018/03/car-insurance-770x433.jpg"
+            },
+            {
+                "category": "Travel Insurance",
+                "product": "Overseas Travel Insurance",
+                "image": "https://www.shriramgi.com/images/travelproductbg.jpg"
+            },
+            {
+                "category": "Health Insurance",
+                "product": "General Health Insurance",
+                "image": "https://images.financialexpress.com/2019/08/health-insurance.jpg"
+            }
+        ])
+    }, [])
+
+    const classes = useStyles()
 
     const renderCard = (card, index) => {
         return (

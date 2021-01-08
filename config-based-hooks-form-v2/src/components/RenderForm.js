@@ -42,7 +42,6 @@ function RenderForm({formFields, onSubmit}) {
                                 variant="outlined" margin="normal" required fullWidth/>
                         </div>
                     )
-                   break
                 
                 case 'select':
                     return (
@@ -56,7 +55,6 @@ function RenderForm({formFields, onSubmit}) {
                             </select>  
                         </div> 
                     )
-                    break
                 
                 default:
                     return (
