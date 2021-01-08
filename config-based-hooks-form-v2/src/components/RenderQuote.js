@@ -6,16 +6,19 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 
-function RenderQuote({location}) {
+function RenderQuote({locationData}) {
 
-    const quoteData = JSON.parse(location.state.quoteData)
+    const quoteData = JSON.parse(locationData.location.state.quoteData)
     console.log(quoteData)
 
+    const Capitalize = (str)=>{
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
     const renderQuote = (quote) => {
         let quotes=[]
         for(let key in quote){
             if(quote[key] !== ""){
-                quotes.push(<Typography variant="body2" color="textSecondary" component="p">{key}: {quote[key]}</Typography>)
+                quotes.push(<Typography variant="body2" color="textSecondary" component="p">{Capitalize(key)}: {quote[key]}</Typography>)
             }
         }
         return quotes

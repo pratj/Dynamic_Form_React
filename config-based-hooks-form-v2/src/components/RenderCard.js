@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogContent, DialogTitle, Grid, Typography } from '@material-ui/core'
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Dialog, DialogContent, DialogTitle, Divider, Grid, Typography } from '@material-ui/core'
 import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core';
 import axios from 'axios'
@@ -70,26 +70,29 @@ function RenderCard() {
 
     const renderCard = (card, index) => {
         return (
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
                 <Card key={index} style={{maxWidth: 345, margin: 'auto', marginTop: 20}}>
-                    <CardMedia image={card.image} style={{height: 140}}/>
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {card.category}
-                        </Typography>    
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small" color="primary" onClick={() => handleClickOpen(card)}>
+                    <CardActionArea onClick={() => handleClickOpen(card)}>
+                        <CardMedia component="img" image={card.image} height="140" title={card.category}/>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {card.category}
+                            </Typography>
+                        {/* <Divider/>     */}
+                        </CardContent>
+                    </CardActionArea>
+                    {/* <CardActions>
+                        <Button size="small" color="primary" variant="outlined" onClick={() => handleClickOpen(card)}>
                             Proceed
                         </Button>
-                    </CardActions>
+                    </CardActions> */}
                 </Card>
             </Grid>
         )
     }
 
     return (
-        <div className="cardRender">
+        <div className={`cardRender ${classes.root1}`}>
             <Grid container>
                 {typeof cardConfig !== 'undefined' && cardConfig.map(renderCard)}
             </Grid>
