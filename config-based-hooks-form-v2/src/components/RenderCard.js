@@ -43,34 +43,34 @@ function RenderCard() {
     }
 
     useEffect(() => {
-        // axios.get("http://localhost:9090/api/").then((response) => {
-        //     console.log(response.data)
-        //     cardConfig = response.data
-        // })
-        setCardConfig([
-            {
-                "category": "Motor Insurance", 
-                "product": "Car Insurance",
-                "image": "https://images.moneycontrol.com/static-mcnews/2018/03/car-insurance-770x433.jpg"
-            },
-            {
-                "category": "Travel Insurance",
-                "product": "Overseas Travel Insurance",
-                "image": "https://www.shriramgi.com/images/travelproductbg.jpg"
-            },
-            {
-                "category": "Health Insurance",
-                "product": "General Health Insurance",
-                "image": "https://images.financialexpress.com/2019/08/health-insurance.jpg"
-            }
-        ])
+        axios.get("http://localhost:9090/api/categories").then((response) => {
+            console.log(response.data)
+            setCardConfig(response.data)
+        })
+        // setCardConfig([
+        //     {
+        //         "category": "Motor Insurance", 
+        //         "product": "Car Insurance",
+        //         "image": "https://images.moneycontrol.com/static-mcnews/2018/03/car-insurance-770x433.jpg"
+        //     },
+        //     {
+        //         "category": "Travel Insurance",
+        //         "product": "Overseas Travel Insurance",
+        //         "image": "https://www.shriramgi.com/images/travelproductbg.jpg"
+        //     },
+        //     {
+        //         "category": "Health Insurance",
+        //         "product": "General Health Insurance",
+        //         "image": "https://images.financialexpress.com/2019/08/health-insurance.jpg"
+        //     }
+        // ])
     }, [])
 
     const classes = useStyles()
 
     const renderCard = (card, index) => {
         return (
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={6}>
                 <Card key={index} style={{maxWidth: 345, margin: 'auto', marginTop: 20}}>
                     <CardActionArea onClick={() => handleClickOpen(card)}>
                         <CardMedia component="img" image={card.image} height="140" title={card.category}/>
