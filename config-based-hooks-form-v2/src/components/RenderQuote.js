@@ -11,14 +11,17 @@ function RenderQuote({locationData}) {
     const quoteData = JSON.parse(locationData.location.state.quoteData)
     console.log(quoteData)
 
-    const Capitalize = (str)=>{
+    const capitalize = (str)=>{
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
     const renderQuote = (quote) => {
         let quotes=[]
         for(let key in quote){
-            if(quote[key] !== ""){
-                quotes.push(<Typography variant="body2" color="textSecondary" component="p">{Capitalize(key)}: {quote[key]}</Typography>)
+            // if(quote[key] !== ""){
+            //     quotes.push(<Typography variant="body2" color="textSecondary" component="p">{Capitalize(key)}: {quote[key]}</Typography>)
+            // }
+            if( key !== "partner" && key !== "image" && key !== ""){
+                quotes.push(<Typography variant="body2" color="textSecondary" component="p">{capitalize(key)}: {quote[key]}</Typography>)
             }
         }
         return quotes
@@ -35,7 +38,8 @@ function RenderQuote({locationData}) {
                         </Typography>
                         <Divider/>
                         <br></br>
-                        {(typeof (partner.quote) === 'object') && <>{renderQuote(partner.quote)}</>}
+                        {/* {(typeof (partner.quote) === 'object') && <>{renderQuote(partner.quote)}</>} */}
+                        {renderQuote(partner)}
                     </CardContent>
                 </Card>
             </Grid>
