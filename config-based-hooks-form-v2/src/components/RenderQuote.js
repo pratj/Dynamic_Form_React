@@ -20,7 +20,7 @@ function RenderQuote({locationData}) {
             // if(quote[key] !== ""){
             //     quotes.push(<Typography variant="body2" color="textSecondary" component="p">{Capitalize(key)}: {quote[key]}</Typography>)
             // }
-            if( key !== "partner" && key !== "image" && key !== ""){
+            if( key !== "partner" && key !== "image" && quote[key] !== ""){
                 quotes.push(<Typography variant="body2" color="textSecondary" component="p">{capitalize(key)}: {quote[key]}</Typography>)
             }
         }

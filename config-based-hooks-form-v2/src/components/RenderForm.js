@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Container, TextField, Typography } from '@material-ui/core';
+import { Button, Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from '@material-ui/core';
 import '../RenderForm.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +36,7 @@ function RenderForm({formFields, onSubmit}) {
                 case 'email':
                 case 'tel':
                 case 'date':
+                case 'number':
                     return (
                         <div key={name}>
                             <TextField id={name} name={name} type={type} label={label} placeholder={placeholder} inputRef={register}
@@ -56,6 +57,20 @@ function RenderForm({formFields, onSubmit}) {
                         </div> 
                     )
                 
+                case 'radio':
+                    return (
+                        <div key={name}>
+                            <FormControl component="fieldset" required>
+                                <FormLabel component="legend">{label}</FormLabel>
+                                <RadioGroup name={name}>
+                                    <FormControlLabel value="female" control={<Radio inputRef={register}/>} label="Female" labelPlacement="end"/>
+                                    <FormControlLabel value="male" control={<Radio inputRef={register}/>} label="Male" labelPlacement="end"/>
+                                    <FormControlLabel value="other" control={<Radio inputRef={register}/>} label="Other" labelPlacement="end"/>
+                                </RadioGroup>
+                            </FormControl>
+                        </div>
+                    )
+
                 default:
                     return (
                         <div key={name}>

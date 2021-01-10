@@ -70,7 +70,7 @@ function RenderCard() {
 
     const renderCard = (card, index) => {
         return (
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
                 <Card key={index} style={{maxWidth: 345, margin: 'auto', marginTop: 20}}>
                     <CardActionArea onClick={() => handleClickOpen(card)}>
                         <CardMedia component="img" image={card.image} height="140" title={card.category}/>
@@ -93,7 +93,7 @@ function RenderCard() {
 
     return (
         <div className={`cardRender ${classes.root1}`}>
-            <Grid container>
+            <Grid container spacing={3}>
                 {typeof cardConfig !== 'undefined' && cardConfig.map(renderCard)}
             </Grid>
             {cardInfo.category !== '' && 
