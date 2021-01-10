@@ -62,10 +62,13 @@ function RenderForm({formFields, onSubmit}) {
                         <div key={name}>
                             <FormControl component="fieldset" required>
                                 <FormLabel component="legend">{label}</FormLabel>
-                                <RadioGroup name={name}>
-                                    <FormControlLabel value="female" control={<Radio inputRef={register}/>} label="Female" labelPlacement="end"/>
+                                <RadioGroup row name={name}>
+                                    {field.items.map((item) => {
+                                        return <FormControlLabel key={item.value} value={item.value} control={<Radio inputRef={register}/>} label={item.label} labelPlacement="end"/>
+                                    })}
+                                    {/* <FormControlLabel value="female" control={<Radio inputRef={register}/>} label="Female" labelPlacement="end"/>
                                     <FormControlLabel value="male" control={<Radio inputRef={register}/>} label="Male" labelPlacement="end"/>
-                                    <FormControlLabel value="other" control={<Radio inputRef={register}/>} label="Other" labelPlacement="end"/>
+                                    <FormControlLabel value="other" control={<Radio inputRef={register}/>} label="Other" labelPlacement="end"/> */}
                                 </RadioGroup>
                             </FormControl>
                         </div>
