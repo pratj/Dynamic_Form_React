@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from '@material-ui/core';
+import { Button, Container, FormControl, FormControlLabel, FormGroup, FormLabel, Radio, RadioGroup, TextField, Typography, Switch } from '@material-ui/core';
 import '../RenderForm.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -66,9 +66,6 @@ function RenderForm({formFields, onSubmit}) {
                                     {field.items.map((item) => {
                                         return <FormControlLabel key={item.value} value={item.value} control={<Radio inputRef={register}/>} label={item.label} labelPlacement="end"/>
                                     })}
-                                    {/* <FormControlLabel value="female" control={<Radio inputRef={register}/>} label="Female" labelPlacement="end"/>
-                                    <FormControlLabel value="male" control={<Radio inputRef={register}/>} label="Male" labelPlacement="end"/>
-                                    <FormControlLabel value="other" control={<Radio inputRef={register}/>} label="Other" labelPlacement="end"/> */}
                                 </RadioGroup>
                             </FormControl>
                         </div>
@@ -92,6 +89,11 @@ function RenderForm({formFields, onSubmit}) {
                 </Typography>
                 <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
                     {renderFields(formFields)}
+                    <FormControlLabel 
+                        control={<Switch name="sendUpdates" inputRef={register}/>}
+                        labelPlacement="start"
+                        label="Get updates on Email"
+                    />
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                         Submit
                     </Button>
