@@ -36,12 +36,12 @@ function RenderQuote({locationData}) {
     const renderQuote = (quote) => {
         let quotes=[]
         for(let key in quote){
-            // if(quote[key] !== ""){
-            //     quotes.push(<Typography variant="body2" color="textSecondary" component="p">{Capitalize(key)}: {quote[key]}</Typography>)
-            // }
-            if( key !== "partner" && key !== "image" && quote[key] !== ""){
+            if(quote[key] !== ""){
                 quotes.push(<Typography variant="body2" color="textSecondary" component="p">{capitalize(key)}: {quote[key]}</Typography>)
             }
+            // if( key !== "partner" && key !== "image" && quote[key] !== ""){
+            //     quotes.push(<Typography variant="body2" color="textSecondary" component="p">{capitalize(key)}: {quote[key]}</Typography>)
+            // }
         }
         return quotes
     }
@@ -57,8 +57,8 @@ function RenderQuote({locationData}) {
                         </Typography>
                         <Divider/>
                         <br></br>
-                        {/* {(typeof (partner.quote) === 'object') && <>{renderQuote(partner.quote)}</>} */}
-                        {renderQuote(partner)}
+                        {(typeof (partner.quote) === 'object') && <>{renderQuote(partner.quote)}</>}
+                        {/* {renderQuote(partner)} */}
                     </CardContent>
                     <Button onClick={() => stripePayment(partner.partner, partner.premium)}>Buy Now</Button>
                 </Card>

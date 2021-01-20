@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 function RenderCard() {
 
     const [cardConfig, setCardConfig] = useState()
-
+    const [shadow, setShadow] = useState(1)
     const [cardInfo, setCardInfo] = useState({
         category: "",
         product: ""
@@ -28,6 +28,9 @@ function RenderCard() {
     const [open, setOpen] = useState(false)
 
     // var cardConfig;
+
+    const onMouseOver = () => setShadow(3)
+    const onMouseOut = () => setShadow(1)
 
     const handleClickOpen = (card) => {
         console.log(card.category, card.product)
@@ -71,7 +74,7 @@ function RenderCard() {
     const renderCard = (card, index) => {
         return (
             <Grid item xs={12} sm={4}>
-                <Card key={index} style={{maxWidth: 345, margin: 'auto', marginTop: 20}}>
+                <Card key={index} style={{maxWidth: 345, margin: 'auto', marginTop: 20}} onMouseOver={onMouseOver} onMouseOut={onMouseOut} zDepth={shadow}>
                     <CardActionArea onClick={() => handleClickOpen(card)}>
                         <CardMedia component="img" image={card.image} height="140" title={card.category}/>
                         <CardContent>
