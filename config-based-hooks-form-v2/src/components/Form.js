@@ -16,27 +16,6 @@ function Form({cardInfo, setOpenPopup}) {
             const quoteData = response.data
             history.push("/quote", {quoteData: JSON.stringify(quoteData)})
         })
-        // const quoteData = [
-        //     {
-        //         "partner": "Tata AIG",
-        //         "image": "https://www.tataaig.com/logo.png",
-        //         "quote": {
-        //             "idv": "50000",
-        //             "benefits": "Car benefits",
-        //             "others": ""
-        //         }
-        //     },
-        //     {
-        //         "partner": "Bajaj Allianz",
-        //         "image": "https://m.economictimes.com/thumb/height-450,width-600,imgsize-145233,msid-73152868/bajaj-allianz-general-insurance.jpg",
-        //         "quote": {
-        //             "idv": "40000",
-        //             "benefits": "Car benefits & Motor benefits",
-        //             "others": "Health benefits"
-        //         }
-        //     }
-        // ]
-        
         setOpenPopup(false)
     }
 

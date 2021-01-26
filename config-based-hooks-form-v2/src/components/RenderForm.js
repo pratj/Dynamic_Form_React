@@ -39,8 +39,10 @@ function RenderForm({formFields, onSubmit}) {
                 case 'number':
                     return (
                         <div key={name}>
-                            <TextField id={name} name={name} type={type} label={label} placeholder={placeholder} inputRef={register}
-                                variant="outlined" margin="normal" required fullWidth/>
+                            <TextField id={name} name={name} type={type} label={label} placeholder={placeholder} inputRef={register({"required": true})}
+                                variant="outlined" margin="normal" fullWidth/>
+                                {console.log(name)}
+                            {errors.name && <span>This field is required</span>}
                         </div>
                     )
                 
