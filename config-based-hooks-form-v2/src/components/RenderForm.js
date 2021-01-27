@@ -22,13 +22,25 @@ const useStyles = makeStyles((theme) => ({
 
 function RenderForm({formFields, onSubmit}) {
 
+    var validations
     const classes = useStyles();
     const { register, handleSubmit, errors } = useForm()
+
+    const handlePattern = (validation) => {
+        let tempValidation = validation
+        tempValidation["pattern"]["value"] = new RegExp(validation.pattern.value)
+        validations = tempValidation
+    }
+
+    const handleValidations = (validation) => {
+        validations = validation
+    }
 
     const renderFields = (fields) => {
 
         return fields.map(field => {
-            const { name, type, label, placeholder } = field
+            const { name, type, label, placeholder, validation } = field
+            {validation.hasOwnProperty("pattern") ? handlePattern(validation) : handleValidations(validation)}
 
             switch(type){
 
@@ -39,23 +51,23 @@ function RenderForm({formFields, onSubmit}) {
                 case 'number':
                     return (
                         <div key={name}>
-                            <TextField id={name} name={name} type={type} label={label} placeholder={placeholder} inputRef={register({"required": true})}
+                            <TextField id={name} name={name} type={type} label={label} placeholder={placeholder} inputRef={register(validations)}
                                 variant="outlined" margin="normal" fullWidth/>
-                                {console.log(name)}
-                            {errors.name && <span>This field is required</span>}
+                            {errors[name] && <span style={{color: "red"}}>* {errors[name].message}</span>}
                         </div>
                     )
                 
                 case 'select':
                     return (
                         <div key={name}>
-                            <select id={name} name={name} ref={register}>
+                            <select id={name} name={name} ref={register(validations)}>
                                 <option value="">Select Destination..</option>
                                 <option value="India">India</option>
                                 <option value="England">England</option>
                                 <option value="Australia">Australia</option>
                                 <option value="USA">USA</option>
-                            </select>  
+                            </select>
+                            {errors[name] && <span style={{color: "red"}}>* {errors[name].message}</span>}  
                         </div> 
                     )
                 
@@ -66,10 +78,11 @@ function RenderForm({formFields, onSubmit}) {
                                 <FormLabel component="legend">{label}</FormLabel>
                                 <RadioGroup row name={name}>
                                     {field.items.map((item) => {
-                                        return <FormControlLabel key={item.value} value={item.value} control={<Radio inputRef={register}/>} label={item.label} labelPlacement="end"/>
+                                        return <FormControlLabel key={item.value} value={item.value} control={<Radio inputRef={register(validations)}/>} label={item.label} labelPlacement="end"/>
                                     })}
                                 </RadioGroup>
                             </FormControl>
+                            {errors[name] && <span style={{color: "red"}}>* {errors[name].message}</span>}
                         </div>
                     )
 
