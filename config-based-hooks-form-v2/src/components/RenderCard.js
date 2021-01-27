@@ -27,8 +27,6 @@ function RenderCard() {
 
     const [open, setOpen] = useState(false)
 
-    // var cardConfig;
-
     const onMouseOver = () => setShadow(3)
     const onMouseOut = () => setShadow(1)
 
@@ -64,14 +62,8 @@ function RenderCard() {
                             <Typography gutterBottom variant="h5" component="h2">
                                 {card.category}
                             </Typography>
-                        {/* <Divider/>     */}
                         </CardContent>
                     </CardActionArea>
-                    {/* <CardActions>
-                        <Button size="small" color="primary" variant="outlined" onClick={() => handleClickOpen(card)}>
-                            Proceed
-                        </Button>
-                    </CardActions> */}
                 </Card>
             </Grid>
         )
