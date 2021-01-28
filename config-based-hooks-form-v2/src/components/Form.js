@@ -24,32 +24,6 @@ function Form({cardInfo, setOpenPopup}) {
             console.log("Form Data", response.data[0].fields)
             setFormFields(response.data[0].fields)
         })
-        // setFormFields([
-        //     {
-        //         "name": "vehicleNo",
-        //         "type": "text",
-        //         "label": "Car Registration Number",
-        //         "placeholder": "Car Registration Number"
-        //     },
-        //     {
-        //         "name": "fullName",
-        //         "type": "text",
-        //         "label": "Full Name",
-        //         "placeholder": "Enter Full Name"
-        //     },
-        //     {
-        //         "name": "email",
-        //         "type": "email",
-        //         "label": "Email Address",
-        //         "placeholder": "Enter Email Id"
-        //       },
-        //       {
-        //         "name": "phoneNumber",
-        //         "type": "tel",
-        //         "label": "Phone Number",
-        //         "placeholder": "Enter Phone Number"
-        //       }
-        // ])
     }, [])
 
     return (
