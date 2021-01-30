@@ -25,7 +25,7 @@ function Partners() {
   }, []);
 
   return (
-    <Grid container className="partners">
+    <Grid container className="partners" data-test="partners">
       <Grid item xs={false} sm={2}></Grid>
       <Grid item xs={12} sm={8}>
         <Typography

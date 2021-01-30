@@ -9,7 +9,7 @@ test("renders products component", () => {
 
 test("renders products component with parent div", () => {
   const wrapper = shallow(<Products />);
-  expect(wrapper.find(".products").length).toBe(1);
+  expect(wrapper.find('[data-test="products"]').length).toBe(1);
 });
 
 test("renders Our Products heading", () => {

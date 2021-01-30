@@ -9,7 +9,7 @@ test("renders partners component", () => {
 
 test("renders partners component with parent div", () => {
   const wrapper = shallow(<Partners />);
-  expect(wrapper.find(".partners").length).toBe(1);
+  expect(wrapper.find('[data-test="partners"]').length).toBe(1);
 });
 
 test("renders Our Partners heading", () => {

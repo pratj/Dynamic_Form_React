@@ -4,6 +4,7 @@ exports[`Partners snapshot 1`] = `
 <WithStyles(ForwardRef(Grid))
   className="partners"
   container={true}
+  data-test="partners"
 >
   <WithStyles(ForwardRef(Grid))
     item={true}

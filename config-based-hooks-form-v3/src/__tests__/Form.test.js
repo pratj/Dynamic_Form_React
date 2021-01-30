@@ -10,16 +10,17 @@ const cardInfo = {
 const setOpenPopup = true;
 
 test("renders form component", () => {
-  shallow(<Form />);
+  shallow(<Form cardInfo={cardInfo} setOpenPopup={setOpenPopup} />);
 });
 
 test("renders form component with parent div", () => {
-  const wrapper = shallow(<Form />);
-  expect(wrapper.find(".form").length).toBe(1);
+  const wrapper = shallow(
+    <Form cardInfo={cardInfo} setOpenPopup={setOpenPopup} />
+  );
+  expect(wrapper.find('[data-test="form"]').length).toBe(1);
 });
 
 // test("accepts form props", () => {
-//   //   console.log(shallow(<Form />).debug());
 //   const wrapper = mount(
 //     <Form cardInfo={cardInfo} setOpenPopup={setOpenPopup} />
 //   );

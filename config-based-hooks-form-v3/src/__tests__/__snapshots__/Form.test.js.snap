@@ -3,5 +3,6 @@
 exports[`Form snapshots 1`] = `
 <div
   className="form"
+  data-test="form"
 />
 `;

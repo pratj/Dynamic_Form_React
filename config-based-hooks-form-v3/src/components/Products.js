@@ -15,7 +15,7 @@ function Products() {
   }, []);
 
   return (
-    <Grid container className="products">
+    <Grid container className="products" data-test="products">
       <Grid item xs={false} sm={2}></Grid>
       <Grid item xs={12} sm={8}>
         <Typography
