@@ -147,7 +147,7 @@ function RenderForm({ formFields, onSubmit }) {
                 <option value="Australia">Australia</option>
                 <option value="USA">USA</option>
               </select>
-              {errors[name]  && (
+              {errors[name] && (
                 <span style={{ color: "red" }}>* {errors[name].message}</span>
               )}
               {/* <Controls.CountrySelect /> */}
@@ -188,7 +188,12 @@ function RenderForm({ formFields, onSubmit }) {
   };
 
   return (
-    <Container component="main" maxWidth="xs" className="renderForm">
+    <Container
+      component="main"
+      maxWidth="xs"
+      className="renderForm"
+      data-test="renderForm"
+    >
       <div className={classes.paper}>
         <Typography variant="subtitle1">
           Provide the following details
@@ -200,7 +205,6 @@ function RenderForm({ formFields, onSubmit }) {
             label="Get updates on Email"
           />
           <Button
-            className="button"
             type="submit"
             fullWidth
             variant="contained"

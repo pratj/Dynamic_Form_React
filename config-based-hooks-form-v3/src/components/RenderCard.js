@@ -52,11 +52,13 @@ function RenderCard() {
   };
 
   useEffect(() => {
-    console.log(`${process.env.REACT_APP_BASE_URL}/api/categories`)
-    axios.get(`${process.env.REACT_APP_BASE_URL}/api/categories`).then((response) => {
-      console.log(response.data);
-      setCardConfig(response.data);
-    });
+    console.log(`${process.env.REACT_APP_BASE_URL}/api/categories`);
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/api/categories`)
+      .then((response) => {
+        console.log(response.data);
+        setCardConfig(response.data);
+      });
   }, []);
 
   const classes = useStyles();
@@ -98,7 +100,7 @@ function RenderCard() {
   };
 
   return (
-    <div className={`cardRender ${classes.root1}`}>
+    <div className={`cardRender ${classes.root1}`} data-test="renderCard">
       <Grid container spacing={3}>
         {typeof cardConfig !== "undefined" && cardConfig.map(renderCard)}
       </Grid>

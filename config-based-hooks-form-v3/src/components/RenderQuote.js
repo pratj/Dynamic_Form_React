@@ -18,7 +18,6 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import axios from "axios";
 
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -74,10 +73,13 @@ function RenderQuote({ locationData }) {
       amount: amountPayed,
       userLocation: quoteResponse.userLocation,
     };
-    console.log(`${process.env.REACT_APP_STRIPE_KEY}/api/payment`)
-    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/charge`, {
-      data,
-    });
+    console.log(`${process.env.REACT_APP_STRIPE_KEY}/api/payment`);
+    const response = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/api/charge`,
+      {
+        data,
+      }
+    );
     const { status } = response.data;
 
     if (status === "succeeded") {
@@ -174,7 +176,7 @@ function RenderQuote({ locationData }) {
   };
 
   return (
-    <div>
+    <div data-test="renderQuote">
       <Grid container>{quoteData.map(renderPartner)}</Grid>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
